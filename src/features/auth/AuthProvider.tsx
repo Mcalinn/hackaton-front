@@ -99,7 +99,7 @@ export const AuthProvider = ({
   }: {
     username: string;
     password: string;
-    age: string;
+    age: number;
     role: 'student' | 'parent';
   }) => {
     console.log('[AuthProvider] Registering...');
@@ -134,6 +134,9 @@ export const AuthProvider = ({
             username: response.user.username,
             level: response.user.level || 0,
             achievements: [],
+            role: response.user.role ?? 'student', // или значение по умолчанию
+            xp: response.user.xp ?? 0,
+            coins: response.user.coins ?? 0,
           });
         }
       }
